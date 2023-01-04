@@ -31,7 +31,20 @@ function moviesAverageOfDirector(array, director) {
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  
+  let data = new Map(Object.entries(array));
+  let alphabetMovies = [];
+  data.forEach((value) => {
+    alphabetMovies.push(value.title);
+  });
+  alphabetMovies.sort();
+
+  // Should return the top 20 after ordering them alphabetically
+  if (alphabetMovies.length > 20) {
+    let slicedAlphabetMovies = alphabetMovies.slice(0, 20);
+    return slicedAlphabetMovies;
+  } else {
+    return alphabetMovies;
+  }
 }
 
 // Exercise 5: Order by year, ascending

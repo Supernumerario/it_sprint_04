@@ -2006,3 +2006,6 @@ const movies = [
 if (typeof module !== 'undefined') {
   module.exports = movies;
 }
+
+// Just for testing purposes
+// export const data = movies;

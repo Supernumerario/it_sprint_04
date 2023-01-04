@@ -84,7 +84,35 @@ function moviesAverageByCategory(array, genre) {
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(array) {
+
+  // Create a copy of the original objects array
+  let arrayCopy = array.map(movie => {
+    let movieCopy = {...movie};
+    return movieCopy;
+  });
+
+  // Map the new array
+  let resultArray = new Map(Object.entries(arrayCopy));
+
+  // Convert time to minutes
+  resultArray.forEach((value) => {
+    let time = value.duration;
+    let hoursMinutes = time.split(' ');
+    let hours = hoursMinutes[0].slice(0, -1);
+    if (hoursMinutes[1]) {
+      let minutes = hoursMinutes[1].slice(0, -3);
+      let totalMinutes = hours * 60 + parseInt(minutes);
+      value.duration = totalMinutes;
+    } else {
+      let totalMinutes = hours * 60;
+      value.duration = parseInt(totalMinutes);
+    }
+  });
+
+  // Convert the map to an array of objects
+  const finalData = Array.from(arrayCopy);
+  return finalData;
 
 }
 

@@ -1,8 +1,14 @@
+// Import the movies data (just for testing)
+// import {data} from "./data.js";
+
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
-  let result =  ???;
-  console.log("EXERCICE 1 ->", result);
-  return result;
+  let data = new Map(Object.entries(array));
+  let directors = [];
+  data.forEach((value) => {
+    directors.push(value.director);
+  });
+  return directors;
 }
 
 // Exercise 2: Get the films of a certain director
